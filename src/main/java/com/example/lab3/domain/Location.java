@@ -1,5 +1,6 @@
 package com.example.lab3.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,20 +8,21 @@ import lombok.Setter;
 
 import java.util.List;
 
-
 @Getter
 @Setter
-@Table(name = "category")
+@Table(name = "location")
 @NoArgsConstructor
 @Entity
-public class Category {
+
+public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String categoryType;
+    private Long locationId;
 
+    String city;
 
-    @OneToMany(mappedBy = "categoryid")
+    @OneToMany(mappedBy = "locationid")
+    @JsonBackReference
     private List<Restaurant> restaurants;
 
 
