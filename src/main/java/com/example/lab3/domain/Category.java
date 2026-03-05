@@ -1,5 +1,6 @@
 package com.example.lab3.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,8 @@ public class Category {
     private String categoryType;
 
 
-    @OneToMany(mappedBy = "categoryid")
+    @OneToMany(mappedBy = "category")
+    @JsonManagedReference
     private List<Restaurant> restaurants;
 
 

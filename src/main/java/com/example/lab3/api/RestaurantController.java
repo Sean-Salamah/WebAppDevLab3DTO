@@ -1,11 +1,9 @@
 package com.example.lab3.api;
 
+import com.example.lab3.DTOs.UpdateRestaurantRequest;
 import com.example.lab3.domain.Restaurant;
 import com.example.lab3.service.RestaurantService;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +22,12 @@ public class RestaurantController {
         return restaurantService.getAllRestaurants();
     }
 
+    @PatchMapping("/restaurants/{id}")
+    public Restaurant updateRestaurant(
+            @PathVariable Long id,
+            @RequestBody UpdateRestaurantRequest req) {
+
+        return restaurantService.updateRestaurant(id, req);
+    }
 
 }
