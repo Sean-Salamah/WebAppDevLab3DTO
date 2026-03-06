@@ -36,5 +36,10 @@ public class LocationService {
         return locationRepository.save(existingLocation);
     }
 
+    public Location createLocation(Location location)
+    {
+        return locationRepository.save(location);
+    }
+
 }
 

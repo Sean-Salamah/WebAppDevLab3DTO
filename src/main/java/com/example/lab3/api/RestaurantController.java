@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/admin/restaurants")
+@RequestMapping("api/admin/restaurants")
 public class RestaurantController {
 
     private final RestaurantService restaurantService;
@@ -22,7 +22,7 @@ public class RestaurantController {
         return restaurantService.getAllRestaurants();
     }
 
-    @PatchMapping("/restaurants/{id}")
+    @PatchMapping("/{id}")
     public Restaurant updateRestaurant(
             @PathVariable Long id,
             @RequestBody UpdateRestaurantRequest req) {
